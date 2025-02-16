@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { initData, WebApp } from "@twa-dev/sdk";
+import  WebApp  from "@twa-dev/sdk";
 
 function App() {
   const [user, setUser] = useState(null);
