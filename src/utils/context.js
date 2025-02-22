@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import apiCall from "./api";
+// import apiCall from "./api";
 
 const AppContext = createContext();
 
@@ -11,7 +11,7 @@ export const useAppContext = () => {
 export const AppProvider = ({ children }) => {
  
   const instance = () => {
-    return apiCall();
+    // return apiCall();
   };
 
   return (
