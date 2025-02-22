@@ -1,0 +1,45 @@
+.ant {
+  &-menu {
+    &-item {
+      &-selected {
+        @apply before:hidden after:hidden text-[#995AEA]  #{!important};
+      }
+
+      @apply text-white font-normal flex flex-col space-y-3 items-center #{!important};
+    }
+    &-horizontal {
+      @apply h-16 pt-3 leading-[0] border-none justify-between before:hidden after:hidden px-12 #{!important};
+    }
+
+    &-title-content {
+      @apply h-4 ms-0 pl-0  #{!important};
+    }
+    @apply px-2;
+  }
+
+  &-input-number {
+
+    &-prefix,
+    &-input {
+    }
+    &-affix-wrapper {
+      @apply pe-[11px] #{!important};
+    }
+    &-handler-wrap {
+      @apply left-3 flex-row w-fit py-1.5 opacity-100  #{!important};
+    }
+    &-handler {
+      @apply h-full first:border-r-2   #{!important};
+      &-up {
+        @apply border-none pr-2 #{!important};
+      }
+      &-down {
+        @apply border-t-0 pl-2 #{!important};
+      }
+      & .anticon {
+        @apply text-xs #{!important};
+      }
+    }
+  }
+}
+

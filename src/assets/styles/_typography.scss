@@ -1,0 +1,8 @@
+@layer base {
+  $font-path: "../font/DanaVF.woff";
+  @font-face {
+    font-family: "dana";
+    src: url($font-path) format("woff");
+    font-style: normal;
+  }
+}

@@ -1,32 +1,41 @@
-import { useEffect, useState } from "react";
-import WebApp from "@twa-dev/sdk";
+import { Suspense, useEffect, useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { ConfigProvider } from "antd";
+import routes from "./utils/routes";
+import { useDispatch } from "react-redux";
+import { setRouterPath } from "store/router/action";
+import DefaultLayout from "layouts";
+import FundDetail from "container/fundDetail/fundDetail";
 
 function App() {
+  const dispatch = useDispatch();
+  const location = useLocation();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // فعال کردن Telegram Mini App SDK
-    WebApp.ready();
-
-    // دریافت اطلاعات کاربر
-    if (WebApp.initDataUnsafe?.user) {
-      setUser(WebApp.initDataUnsafe.user);
-    }
-  }, []);
+    dispatch(setRouterPath(location.pathname));
+    // dispatch(setDataById(null));
+  }, [location.pathname]);
 
   return (
-    <div className="App">
-      <h1>Telegram Mini App</h1>
-      {user ? (
-        <div>
-          <p style={{ color: "white" }}>👤 نام کاربر: {user.first_name} {user.last_name}</p>
-          <p style={{ color: "white" }}>🆔 آیدی: {user.id}</p>
-          <p style={{ color: "white" }}>📧 یوزرنیم: @{user.username}</p>
-        </div>
-      ) : (
-        <p>دریافت اطلاعات کاربر...</p>
-      )}
-    </div>
+    <ConfigProvider direction="ltr">
+      <Suspense>
+        <Routes>
+          <Route path="/fund/*" element={<FundDetail />} />
+          <Route path="/" element={<DefaultLayout />}>
+            {routes.map((route) => {
+              return (
+                <Route
+                  path={route.path}
+                  key={route.path}
+                  element={route.element}
+                />
+              );
+            })}
+          </Route>
+        </Routes>
+      </Suspense>
+    </ConfigProvider>
   );
 }
 
