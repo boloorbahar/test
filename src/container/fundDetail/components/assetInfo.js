@@ -14,7 +14,7 @@ const AssetInfo = ({ data }) => {
   };
 
   return (
-    <div className="rounded-3xl bg-[#2B213E] p-6 border border-[#58545f] grid grid-cols-12 gap-1 text-white mt-10">
+    <div className="rounded-3xl bg-[#2B213E] p-6 border border-[#58545f] grid grid-cols-12 gap-1 text-white ">
       <img src={data?.icon} className="w-20 h-20 col-span-4" />
       <div className="col-span-8 flex flex-col space-y-3">
         <span className="font-bold text-xl leading-6">{data?.title}</span>

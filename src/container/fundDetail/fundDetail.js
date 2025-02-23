@@ -17,7 +17,7 @@ const FundDetail = () => {
   }, []);
 
   return (
-    <div className="flex items-center bg-gradient-to-bl from-[#1E0E35] to-[#070B16] max-w-lg mx-auto h-screen overflow-y-auto overflow-x-hidden ">
+    <div className="flex items-center bg-gradient-to-bl from-[#1E0E35] to-[#070B16] max-w-lg mx-auto h-screen overflow-y-auto overflow-x-hidden pt-44">
       <div className=" my-24 mx-5 ">
         <AssetInfo data={data} />
         <ReturnChart data={data} />

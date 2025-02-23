@@ -3,7 +3,7 @@ import { Button } from "antd";
 const Buttons = ({ data }) => {
   return (
     <div
-      className={`fixed w-full bottom-0 p-5 bg-[#0F0F0F] grid ${
+      className={`fixed w-full max-w-lg bottom-0 p-5 bg-[#0F0F0F] grid ${
         data?.unit ? "grid-cols-2" : "grid-cols-1"
       } gap-5 `}
     >
