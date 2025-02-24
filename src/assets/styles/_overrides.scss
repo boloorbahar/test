@@ -24,7 +24,7 @@
   &-input-affix-wrapper {
     @apply p-2 w-full border border-[#9FA9B2] bg-transparent rounded-lg text-[#9FA9B2]  #{!important};
   }
-  &-modal-confirm-success {
+  &-modal-confirm-success  {
     & .ant-modal-content {
       @apply rounded-3xl bg-black  #{!important};
     }
@@ -38,11 +38,11 @@
     & .ant-modal-confirm-content {
       @apply font-normal text-xs leading-3 #{!important};
     }
-    @apply rounded-3xl border border-[#40BF6A]  #{!important};
     & .ant-modal-confirm-btns {
       & .ant-btn-primary{
         @apply border-none bg-[#4F378A]  rounded-lg text-white text-xs font-normal leading-3 min-w-20
       }
     }
+    @apply rounded-3xl border border-[#40BF6A]  #{!important};
   }
 }
