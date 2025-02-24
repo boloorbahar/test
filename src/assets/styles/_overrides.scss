@@ -32,10 +32,10 @@
     & .ant-modal-confirm-content {
       @apply text-[#F7F7F7] #{!important};
     }
-    &.ant-modal-confirm-title {
+    & .ant-modal-confirm-title {
       @apply font-normal text-sm leading-4 #{!important};
     }
-    &.ant-modal-confirm-content {
+    & .ant-modal-confirm-content {
       @apply font-normal text-xs leading-3 #{!important};
     }
     @apply rounded-3xl border border-[#40BF6A]  #{!important};
