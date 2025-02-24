@@ -17,29 +17,32 @@
     @apply px-2;
   }
 
-  &-input-number {
-
-    &-prefix,
-    &-input {
+  &-form-item-required,
+  &-form-item-label {
+    @apply text-white #{!important};
+  }
+  &-input-affix-wrapper {
+    @apply p-2 w-full border border-[#9FA9B2] bg-transparent rounded-lg text-[#9FA9B2]  #{!important};
+  }
+  &-modal-confirm-success {
+    & .ant-modal-content {
+      @apply rounded-3xl bg-black  #{!important};
     }
-    &-affix-wrapper {
-      @apply pe-[11px] #{!important};
+    & .ant-modal-confirm-title,
+    & .ant-modal-confirm-content {
+      @apply text-[#F7F7F7] #{!important};
     }
-    &-handler-wrap {
-      @apply left-3 flex-row w-fit py-1.5 opacity-100  #{!important};
+    &.ant-modal-confirm-title {
+      @apply font-normal text-sm leading-4 #{!important};
     }
-    &-handler {
-      @apply h-full first:border-r-2   #{!important};
-      &-up {
-        @apply border-none pr-2 #{!important};
-      }
-      &-down {
-        @apply border-t-0 pl-2 #{!important};
-      }
-      & .anticon {
-        @apply text-xs #{!important};
+    &.ant-modal-confirm-content {
+      @apply font-normal text-xs leading-3 #{!important};
+    }
+    @apply rounded-3xl border border-[#40BF6A]  #{!important};
+    & .ant-modal-confirm-btns {
+      & .ant-btn-primary{
+        @apply border-none bg-[#4F378A]  rounded-lg text-white text-xs font-normal leading-3 min-w-20
       }
     }
   }
 }
-

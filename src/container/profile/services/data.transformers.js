@@ -17,7 +17,7 @@ export const ProfileItemsData = () => {
       link: "/about-us",
     },
     {
-      title: "Privacy",
+      title: "Privacy Policy",
       link: "/privacy",
     },
   ];

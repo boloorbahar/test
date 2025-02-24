@@ -1,6 +1,6 @@
 import config from "utils/globals";
 
-const AssetInfo = ({ data }) => {
+const UserAssetCard = ({ data,hasReturn }) => {
   const handleReturn = () => {
     return (
       <span
@@ -21,18 +21,20 @@ const AssetInfo = ({ data }) => {
         <span className="font-normal text-[16px] leading-5">
           Total Balance :{" "}
           <span>
-            {config.numberSeparator(data?.amount)||0}{" "}
+            {config.numberSeparator(data?.amount) || 0}{" "}
             <span className="font-light text-xs leading-4">USDT</span>
           </span>
         </span>
         <span className="font-normal text-[16px] leading-5">
-          Total Units : {config.numberSeparator(data?.unit)||0}
+          Total Units : {config.numberSeparator(data?.unit) || 0}
         </span>
-        <span className="font-normal text-[16px] leading-5">
-          Daily Return : {handleReturn()}
-        </span>
+        {hasReturn && (
+          <span className="font-normal text-[16px] leading-5">
+            Daily Return : {handleReturn()}
+          </span>
+        )}
       </div>
     </div>
   );
 };
-export default AssetInfo;
+export default UserAssetCard;

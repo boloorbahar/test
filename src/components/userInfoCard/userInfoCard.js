@@ -31,7 +31,7 @@ const UserInfoCard = () => {
         <img src={userImg} className="w-14 h-14" />
         <div className="flex flex-col items-start ml-4">
           <span className="font-bold leading-6 text-xl">
-            {user?.first_name || "Ali"} {user?.last_name || "Yaseri"}{" "}
+            {user?.first_name || ""} {user?.last_name || ""}{" "}
           </span>
           <span className="mt-[10px] text-[16px] leading-5">
             Total Balance: {config.numberSeparator(178582)}

@@ -1,11 +1,12 @@
 import { Suspense, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { ConfigProvider } from "antd";
-import routes from "./utils/routes";
 import { useDispatch } from "react-redux";
 import { setRouterPath } from "store/router/action";
-import DefaultLayout from "layouts";
-import FundDetail from "container/fundDetail/fundDetail";
+import DefaultLayout from "layouts/defaultLayout";
+import defaultRoutes from "./utils/defaultRoutes";
+import pageRoutes from "./utils/pageRoutes";
+import PageLayout from "layouts/pageLayout";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,9 +22,19 @@ function App() {
     <ConfigProvider direction="ltr">
       <Suspense>
         <Routes>
-          <Route path="/fund/*" element={<FundDetail />} />
           <Route path="/" element={<DefaultLayout />}>
-            {routes.map((route) => {
+            {defaultRoutes.map((route) => {
+              return (
+                <Route
+                  path={route.path}
+                  key={route.path}
+                  element={route.element}
+                />
+              );
+            })}
+          </Route>
+          <Route path="/" element={<PageLayout />}>
+            {pageRoutes.map((route) => {
               return (
                 <Route
                   path={route.path}

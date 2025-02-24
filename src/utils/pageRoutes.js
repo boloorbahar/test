@@ -1,17 +1,5 @@
 import { lazy } from "react";
 
-const Home = lazy(() => {
-  return import("container/home/home");
-});
-
-const Wallet = lazy(() => {
-  return import("container/wallet/wallet");
-});
-
-const Profile = lazy(() => {
-  return import("container/profile/profile");
-});
-
 const Transactions = lazy(() => {
   return import("container/transactions/transactions");
 });
@@ -28,19 +16,15 @@ const Privacy = lazy(() => {
   return import("container/privacy/privacy");
 });
 
+const FundDetail = lazy(() => {
+  return import("container/fundDetail/fundDetail");
+});
+
+const Order = lazy(() => {
+  return import("container/order/order");
+});
+
 const routes = [
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/wallet",
-    element: <Wallet />,
-  },
-  {
-    path: "/profile",
-    element: <Profile />,
-  },
   {
     path: "/history",
     element: <Transactions />,
@@ -56,6 +40,14 @@ const routes = [
   {
     path: "/privacy",
     element: <Privacy />,
+  },
+  {
+    path: "/fund/*",
+    element: <FundDetail />,
+  },
+  {
+    path: "/order",
+    element: <Order />,
   },
 ];
 

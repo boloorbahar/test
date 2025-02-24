@@ -1,3 +1,5 @@
+import AreaChart from "components/areaChart/areaChart";
+
 const ReturnChart = ({ data }) => {
   return (
     <div className="rounded-xl bg-[#0F0F0F] border border-[#58545f] px-6 py-3 mt-8">
@@ -11,7 +13,9 @@ const ReturnChart = ({ data }) => {
           {data?.total_return}%
         </span>
       </div>
-      <div></div>
+      <div className="mt-8">
+        <AreaChart/>
+      </div>
     </div>
   );
 };

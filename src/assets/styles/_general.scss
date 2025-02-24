@@ -14,7 +14,7 @@ html {
     padding: 0;
     touch-action: manipulation;
     overflow: hidden;
-    font-family:  sans-serif;
+    font-family: sans-serif;
     * {
       padding: 0;
       outline: none;
@@ -25,4 +25,8 @@ html {
 .ltr {
   direction: ltr;
 }
-
+input {
+  &::placeholder {
+    @apply text-[#9FA9B2];
+  }
+}
