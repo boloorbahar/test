@@ -25,8 +25,8 @@ html {
 .ltr {
   direction: ltr;
 }
-input {
-  &::placeholder {
-    @apply text-[#9FA9B2];
-  }
-}
+// input {
+//   &::placeholder {
+//     @apply text-[#9FA9B2];
+//   }
+// }
