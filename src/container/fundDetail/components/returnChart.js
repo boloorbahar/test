@@ -14,7 +14,7 @@ const ReturnChart = ({ data }) => {
         </span>
       </div>
       <div className="mt-8">
-        <AreaChart/>
+        {/* <AreaChart/> */}
       </div>
     </div>
   );
