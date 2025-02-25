@@ -1,11 +1,11 @@
 import { Area } from "@ant-design/plots";
+import { chartData } from "./data";
 
 const AreaChart = () => {
   const config = {
     height: 220,
     data: {
-      type: "fetch",
-      value: "https://assets.antv.antgroup.com/g2/stocks.json",
+      value: chartData(),
       transform: [{ type: "filter", callback: (d) => d.symbol === "GOOG" }],
     },
     xField: (d) => new Date(d.date),
