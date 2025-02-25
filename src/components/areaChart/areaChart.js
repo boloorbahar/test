@@ -71,7 +71,7 @@ const AreaChart = () => {
       { symbol: "GOOG", date: "Mar 1 2010", price: 560.19 },
       
     ],
-    xField: (d) => new Date(d?.date),
+    xField:"date",
     yField: "price",
     style: {
       fill: "linear-gradient(-90deg, #1E1E1E 0%, #2D2141 100%)",
