@@ -7,7 +7,6 @@ import DefaultLayout from "layouts/defaultLayout";
 import defaultRoutes from "./utils/defaultRoutes";
 import pageRoutes from "./utils/pageRoutes";
 import PageLayout from "layouts/pageLayout";
-import  WebApp  from '@twa-dev/sdk';
 
 function App() {
   const navigate = useNavigate();
@@ -22,7 +21,6 @@ function App() {
     if (window.Telegram && window.Telegram.WebApp) {
       const tg = window.Telegram.WebApp;
 
-      // اگر در صفحه اول هستیم، دکمه Back رو مخفی می‌کنیم
       if (location.pathname === "/") {
         tg.BackButton.hide();
       } else {
@@ -30,7 +28,7 @@ function App() {
       }
 
       return () => {
-        tg.BackButton.offClick();  // حذف لیسنر
+        tg.BackButton.offClick(); 
       };
     } else {
       console.warn("Telegram WebApp is not available");
@@ -41,7 +39,7 @@ function App() {
     if (window.Telegram && window.Telegram.WebApp) {
       const tg = window.Telegram.WebApp;
 
-      tg.BackButton.onClick(() => navigate(-1));  // عملکرد دکمه Back
+      tg.BackButton.onClick(() => navigate(-1));
     }
   }, [navigate]);
 
