@@ -19,23 +19,30 @@ function App() {
   }, [location.pathname]);
 
   useEffect(() => {
-    const tg = window.Telegram.WebApp; // استفاده از WebApp مستقیم از window
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
 
-    if (location.pathname === "/") {
-      tg?.BackButton?.hide(); // دکمه Back رو مخفی کن در صفحه اول
+      // اگر در صفحه اول هستیم، دکمه Back رو مخفی می‌کنیم
+      if (location.pathname === "/") {
+        tg.BackButton.hide();
+      } else {
+        tg.BackButton.show();
+      }
+
+      return () => {
+        tg.BackButton.offClick();  // حذف لیسنر
+      };
     } else {
-      tg?.BackButton?.show(); // دکمه Back رو نمایش بده در صفحات دیگه
+      console.warn("Telegram WebApp is not available");
     }
-
-    return () => {
-      tg.BackButton.offClick(); // حذف لیسنر در هنگام تغییر مسیر
-    };
   }, [location]);
 
   useEffect(() => {
-    const tg = window.Telegram.WebApp;
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
 
-    tg?.BackButton?.onClick(() => navigate(-1)); // عملکرد دکمه Back
+      tg.BackButton.onClick(() => navigate(-1));  // عملکرد دکمه Back
+    }
   }, [navigate]);
 
 
