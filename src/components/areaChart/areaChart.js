@@ -69,10 +69,14 @@ const AreaChart = () => {
       { symbol: "GOOG", date: "Jan 1 2010", price: 529.94 },
       { symbol: "GOOG", date: "Feb 1 2010", price: 526.8 },
       { symbol: "GOOG", date: "Mar 1 2010", price: 560.19 },
-      
     ],
-    xField:"date",
+    xField: (d) => new Date(d?.date),
     yField: "price",
+    meta: {
+      date: {
+        type: "time", // مشخص کردن نوع فیلد تاریخ
+      },
+    },
     style: {
       fill: "linear-gradient(-90deg, #1E1E1E 0%, #2D2141 100%)",
     },
