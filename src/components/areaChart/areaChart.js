@@ -8,7 +8,7 @@ const AreaChart = () => {
       value: "https://assets.antv.antgroup.com/g2/stocks.json",
       transform: [{ type: "filter", callback: (d) => d.symbol === "GOOG" }],
     },
-    // xField: (d) => new Date(d.date),
+    xField: (d) => new Date(d.date),
     yField: "price",
     style: {
       fill: "linear-gradient(-90deg, #1E1E1E 0%, #2D2141 100%)",
