@@ -71,13 +71,9 @@ const AreaChart = () => {
   const config = {
     height: 220,
     data: data || [],
-    xField: (d) => new Date(d?.date),
+    // xField: (d) => new Date(d?.date),
     yField: "price",
-    meta: {
-      date: {
-        type: "time", // مشخص کردن نوع فیلد تاریخ
-      },
-    },
+
     style: {
       fill: "linear-gradient(-90deg, #1E1E1E 0%, #2D2141 100%)",
     },
