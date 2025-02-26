@@ -2,7 +2,7 @@ const AboutUs = () => {
   return (
     <div className="rounded-3xl p-6 bg-[#1A1E28] border border-[#58545f] text-white mx-5">
       <span className="font-bold text-xl leading-6">About US</span>
-      <p className="my-10 font-normal text-[16px] leading-5">
+      <p className="my-10 font-normal text-[16px] leading-5 text-justify">
         Welcome to Sats Fund! We’re a Telegram Mini App designed to bring the
         thrill of crypto investing to your fingertips. Whether you’re chasing
         high-risk gains with our Meme Fund or playing it steady with the Whale

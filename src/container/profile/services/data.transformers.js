@@ -20,5 +20,9 @@ export const ProfileItemsData = () => {
       title: "Privacy Policy",
       link: "/privacy",
     },
+    {
+      title: "Terms Of Service",
+      link: "/terms",
+    },
   ];
 };

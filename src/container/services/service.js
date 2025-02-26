@@ -1,5 +1,5 @@
-import memeFund from "assets/images/meme-fund.png";
-import whaleFund from "assets/images/whale-fund.png";
+import memeFund from "assets/images/meme-fund.jpeg";
+import whaleFund from "assets/images/whale-fund.jpeg";
 import metalFund from "assets/images/metal-fund.png";
 
 export const userAssetsData = () => {

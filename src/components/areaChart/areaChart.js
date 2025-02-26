@@ -3,7 +3,8 @@ import { Area } from "@ant-design/plots";
 const AreaChart = () => {
   const config = {
     height: 220,
-    data: {
+    data:
+     {
       type: "fetch",
       value: "https://assets.antv.antgroup.com/g2/stocks.json",
       transform: [{ type: "filter", callback: (d) => d.symbol === "GOOG" }],

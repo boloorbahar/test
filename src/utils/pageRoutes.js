@@ -24,6 +24,10 @@ const Order = lazy(() => {
   return import("container/order/order");
 });
 
+const Terms = lazy(() => {
+  return import("container/terms/terms");
+});
+
 const routes = [
   {
     path: "/history",
@@ -40,6 +44,10 @@ const routes = [
   {
     path: "/privacy",
     element: <Privacy />,
+  },
+  {
+    path: "/terms",
+    element: <Terms />,
   },
   {
     path: "/fund/*",
