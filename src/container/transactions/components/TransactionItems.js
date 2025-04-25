@@ -1,14 +1,15 @@
-import { userTransactionsData } from "container/services/service";
 import config from "utils/globals";
 
-const TransactionItems = () => {
+const TransactionItems = ({ data }) => {
   const renderTransactions = () => {
-    return userTransactionsData()?.map((item) => (
+    return data?.map((item) => (
       <div className="rounded-xl bg-[#0F0F0F] border border-[#58545f] px-6 py-3  flex justify-between items-center">
         <div className="flex flex-col space-y-1 text-[#E9EBF8]">
-          <span className="font-bold text-sm leading-4">{item?.fund_name}</span>
+          <span className="font-bold text-sm leading-4">
+            {item?.dynamic_name}
+          </span>
           <span className="font-light text-xs leading-4 ">
-            {config.numberSeparator(item.amount)}{" "}
+            {config.numberSeparator(item?.usdt_amount)}{" "}
             <span className="font-extralight text-[10px] leading-3">USDT</span>
           </span>
         </div>

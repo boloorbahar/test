@@ -1,16 +1,11 @@
 import { Area } from "@ant-design/plots";
 
-const AreaChart = () => {
+const AreaChart = (data) => {
   const config = {
     height: 220,
-    data:
-     {
-      type: "fetch",
-      value: "https://assets.antv.antgroup.com/g2/stocks.json",
-      transform: [{ type: "filter", callback: (d) => d.symbol === "GOOG" }],
-    },
-    xField: (d) => new Date(d.date),
-    yField: "price",
+    data: data?.data?.length > 0 ? data?.data : [],
+    xField: (d) => new Date(d?.created_at),
+    yField: "price_per_unit",
     style: {
       fill: "linear-gradient(-90deg, #1E1E1E 0%, #2D2141 100%)",
     },
@@ -19,11 +14,12 @@ const AreaChart = () => {
         labelFill: "#fff",
       },
       y: {
-        labelFormatter: "~s",
+        labelFormatter: "",
         labelFill: "#fff",
       },
     },
     line: {
+      tooltip: null,
       style: {
         stroke: "#625B71",
         strokeWidth: 2,

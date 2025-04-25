@@ -2,9 +2,32 @@ import UserInfoCard from "components/userInfoCard/userInfoCard";
 import UserFunds from "./components/userFunds";
 import UserTransactions from "./components/userTransactions";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useAppContext } from "utils/context";
+import { getTransactions } from "container/services/service";
+import { useCallback, useEffect, useState } from "react";
+import Loading from "components/loading/loading";
 
 const Wallet = () => {
+  const { instance } = useAppContext();
   const navigate = useNavigate();
+  const data = useSelector((state) => state?.balanceReducer?.data);
+  const profile = useSelector((state) => state?.profileReducer?.profile);
+  const [transactions, setTransactions] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const onGetTransactionsList = useCallback(async () => {
+    setLoading(true);
+    const response = await getTransactions(instance, profile?.id);
+    if (response) {
+      setTransactions(response);
+    }
+    setLoading(false);
+  }, [instance, profile?.id]);
+
+  useEffect(() => {
+    onGetTransactionsList();
+  }, [onGetTransactionsList]);
 
   const onFundClick = (id) => {
     navigate(`/fund/${id}`);
@@ -13,8 +36,8 @@ const Wallet = () => {
   return (
     <div className="my-4 mx-5">
       <UserInfoCard />
-      <UserFunds onFundClick={onFundClick} />
-      <UserTransactions />
+      <UserFunds onFundClick={onFundClick} data={data} />
+      {loading ? <Loading /> : <UserTransactions data={transactions} />}
     </div>
   );
 };

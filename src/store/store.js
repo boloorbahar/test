@@ -6,14 +6,15 @@ import { persistReducer } from "redux-persist";
 import { profileReducer } from "./profile/slice";
 import { routerReducer } from "./router/slice";
 import { fundReducer } from "./fund/slice";
-
+import { balanceReducer } from "./balance/slice";
 
 const logger = createLogger();
 
 const reducers = combineReducers({
   profileReducer,
   routerReducer,
-  fundReducer
+  fundReducer,
+  balanceReducer,
 });
 
 const persistConfig = {

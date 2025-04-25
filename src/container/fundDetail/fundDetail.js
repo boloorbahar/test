@@ -1,25 +1,49 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { userAssetsData } from "container/services/service";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFund } from "store/fund/action";
+import { useAppContext } from "utils/context";
+import { getFundChart, getFundDetail } from "container/services/service";
 import ReturnChart from "./components/returnChart";
 import FundInfo from "./components/fundInfo";
 import Buttons from "./components/buttons";
 import UserAssetCard from "components/userAssetsCard/userAssetsCard";
 
 const FundDetail = () => {
+  const { instance } = useAppContext();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [chartData, setChartData] = useState(false);
+  const data = useSelector((state) => state?.fundReducer?.data);
+  const balance = useSelector((state) => state?.balanceReducer?.data);
+  const balanceData = balance?.balances?.filter((item) => item.chest === id)[0];
+
+  const onGetFundDetail = useCallback(async () => {
+    const response = await getFundDetail(instance, id);
+    if (response) {
+      dispatch(setFund(response));
+    }
+  }, [instance, id]);
 
   useEffect(() => {
-    const assets = userAssetsData()?.filter((i) => i.id === Number(id))[0];
-    setData(assets);
-    dispatch(setFund(assets));
-  }, []);
+    onGetFundDetail();
+  }, [onGetFundDetail]);
+
+  const onGetFundChart = useCallback(async () => {
+    setLoading(true);
+    const response = await getFundChart(instance, id);
+    if (response) {
+      setChartData(response);
+    }
+    setLoading(false);
+  }, [instance, id]);
+
+  useEffect(() => {
+    onGetFundChart();
+  }, [onGetFundChart]);
 
   const onOrderClick = () => {
     navigate("/order");
@@ -27,11 +51,11 @@ const FundDetail = () => {
   return (
     <>
       <div className=" mb-8 mx-5 ">
-        <UserAssetCard data={data} hasReturn={true} />
-        <ReturnChart data={data} />
-        <FundInfo data={data} />
+        <UserAssetCard data={data} balance={balanceData} hasReturn={true} />
+        <ReturnChart data={data} chartData={chartData} loading={loading} />
+        <FundInfo data={data} chartData={chartData} />
       </div>
-      <Buttons data={data} onClick={onOrderClick} />
+      <Buttons data={balanceData} onClick={onOrderClick} />
     </>
   );
 };
