@@ -51,7 +51,7 @@ const Home = () => {
     setLoading(true);
     const result = await getUser(
       instance,
-      WebApp?.initDataUnsafe?.user?.id || 1
+      WebApp?.initDataUnsafe?.user?.id
     );
     if (result?.data) {
       dispatch(setProfile(result?.data));
