@@ -50,7 +50,7 @@ const routes = [
     element: <Terms />,
   },
   {
-    path: "/fund/*",
+    path: "/fund/:id",
     element: <FundDetail />,
   },
   {

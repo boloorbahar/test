@@ -28,7 +28,7 @@ function App() {
       }
 
       return () => {
-        tg.BackButton.offClick(); 
+        tg.BackButton.offClick();
       };
     } else {
       console.warn("Telegram WebApp is not available");
@@ -43,12 +43,11 @@ function App() {
     }
   }, [navigate]);
 
-
   return (
     <ConfigProvider direction="ltr">
       <Suspense>
         <Routes>
-          <Route path="/" element={<DefaultLayout />}>
+          <Route element={<DefaultLayout />}>
             {defaultRoutes.map((route) => {
               return (
                 <Route
@@ -59,7 +58,7 @@ function App() {
               );
             })}
           </Route>
-          <Route path="/" element={<PageLayout />}>
+          <Route element={<PageLayout />}>
             {pageRoutes.map((route) => {
               return (
                 <Route

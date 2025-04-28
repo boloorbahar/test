@@ -52,6 +52,7 @@ const UserAssets = ({ onFundClick, data }) => {
       data?.length > 0 &&
       config.sortArray(data, "priority")?.map((item) => (
         <div
+          key={item?.id}
           className="rounded-xl bg-[#0F0F0F] border border-[#58545f] p-6 grid grid-cols-12 gap-2"
           onClick={() => onFundClick(item?.id)}
         >
