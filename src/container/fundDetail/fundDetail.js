@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setFund } from "store/fund/action";
+import { setFundDetail } from "store/fund/action";
 import { useAppContext } from "utils/context";
 import { getFundChart, getFundDetail } from "container/services/service";
 import ReturnChart from "./components/returnChart";
@@ -16,17 +16,17 @@ const FundDetail = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState(false);
-  const data = useSelector((state) => state?.fundReducer?.data);
+  const data = useSelector((state) => state?.fundReducer?.detail);
   const balance = useSelector((state) => state?.balanceReducer?.data);
   const balanceData =
-    balance?.balances?.length > 0 ?
-      balance?.balances?.filter((item) => item.chest === id)[0] : null;
+    balance?.balances?.length > 0
+      ? balance?.balances?.filter((item) => item.chest === id)[0]
+      : null;
 
-  console.log(chartData);
   const onGetFundDetail = useCallback(async () => {
     const response = await getFundDetail(instance, id);
     if (response) {
-      dispatch(setFund(response));
+      dispatch(setFundDetail(response));
     }
   }, [instance, id]);
 
@@ -51,12 +51,13 @@ const FundDetail = () => {
     navigate("/order");
   };
 
-
   return (
     <>
       <div className=" mb-8 mx-5 ">
         <UserAssetCard data={data} balance={balanceData} hasReturn={true} />
-        {chartData && <ReturnChart data={data} chartData={chartData} loading={loading} />}
+        {chartData && (
+          <ReturnChart data={data} chartData={chartData} loading={loading} />
+        )}
         <FundInfo data={data} chartData={chartData} />
       </div>
       <Buttons data={balanceData} onClick={onOrderClick} />

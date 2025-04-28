@@ -13,22 +13,22 @@ import {
 import { useAppContext } from "utils/context";
 import { setProfile } from "store/profile/slice";
 import { setBalance } from "store/balance/action";
-import { setFundId } from "store/fund/action";
+import { setFund, setFundId } from "store/fund/action";
 import WebApp from "@twa-dev/sdk";
 
 const Home = () => {
   const { instance } = useAppContext();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const data = useSelector((state) => state?.fundReducer?.data);
   const profile = useSelector((state) => state?.profileReducer?.profile);
 
   const onGetFundsList = useCallback(async () => {
     setLoading(true);
     const response = await getFunds(instance);
     if (response) {
-      setData(response);
+      dispatch(setFund(response));
     }
     setLoading(false);
   }, [instance]);
@@ -85,7 +85,7 @@ const Home = () => {
   }, [onUserBalance]);
 
   const onFundClick = (id) => {
-    dispatch(setFundId(id))
+    dispatch(setFundId(id));
     navigate(`/fund/${id}`);
   };
 

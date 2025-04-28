@@ -14,6 +14,7 @@ const Wallet = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = useSelector((state) => state?.balanceReducer?.data);
+  const fund = useSelector((state) => state?.fundReducer?.data);
   const profile = useSelector((state) => state?.profileReducer?.profile);
   const [transactions, setTransactions] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -39,8 +40,12 @@ const Wallet = () => {
   return (
     <div className="my-4 mx-5">
       <UserInfoCard />
-      <UserFunds onFundClick={onFundClick} data={data} />
-      {loading ? <Loading /> : <UserTransactions data={transactions} />}
+      <UserFunds onFundClick={onFundClick} data={data} fund={fund} />
+      {loading ? (
+        <Loading />
+      ) : (
+        transactions?.length > 0 && <UserTransactions data={transactions} />
+      )}
     </div>
   );
 };
