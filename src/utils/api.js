@@ -15,7 +15,7 @@ const handleError = (error) => {
 
 const apiCall = () => {
   const instance = axios.create({
-    baseURL: "https://107.189.15.115",
+    baseURL: "https://satsfund.io",
     headers: {},
     contentType: "application/json-patch+json",
     responseType: "json",
