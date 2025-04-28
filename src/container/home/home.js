@@ -38,11 +38,14 @@ const Home = () => {
 
   const onCreateUser = async () => {
     const data = {
-      username: String(WebApp?.initDataUnsafe?.user?.username),
-      user_id: String(WebApp?.initDataUnsafe?.user?.id),
+      username: WebApp?.initDataUnsafe?.user?.username,
+      user_id:
+        WebApp?.initDataUnsafe?.user?.id &&
+        String(WebApp?.initDataUnsafe?.user?.id),
       additionalProp1: {},
     };
-    const response = await createUser(instance, data);
+    const response =
+      WebApp?.initDataUnsafe?.user?.id && (await createUser(instance, data));
     if (response) {
       dispatch(setProfile(response));
     }
@@ -50,10 +53,7 @@ const Home = () => {
 
   const onGetUser = useCallback(async () => {
     setLoading(true);
-    const result = await getUser(
-      instance,
-      WebApp?.initDataUnsafe?.user?.id
-    );
+    const result = await getUser(instance, WebApp?.initDataUnsafe?.user?.id);
     if (result?.data) {
       dispatch(setProfile(result?.data));
     } else if (
