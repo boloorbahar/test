@@ -23,7 +23,7 @@ const UserFunds = ({ onFundClick, data, fund }) => {
     return fundData?.map((item) => (
       <div
         className="rounded-xl bg-[#0F0F0F] border border-[#58545f] px-6 py-3 grid grid-cols-12 gap-2"
-        onClick={() => onFundClick(item?.chest)}
+        onClick={() => onFundClick(item?.chest|| item?.id)}
       >
         <img
           src={renderImages(item?.chest || item?.id)}
