@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setFund } from "store/fund/action";
 import { useAppContext } from "utils/context";
@@ -13,10 +13,9 @@ const FundDetail = () => {
   const { instance } = useAppContext();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation();
-  const id = location.pathname.split("/")[1];
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState(false);
+  const id = useSelector((state) => state?.fundReducer?.id);
   const data = useSelector((state) => state?.fundReducer?.data);
   const balance = useSelector((state) => state?.balanceReducer?.data);
   const balanceData = balance?.balances?.filter((item) => item.chest === id)[0];

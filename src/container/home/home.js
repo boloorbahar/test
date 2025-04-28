@@ -13,6 +13,7 @@ import {
 import { useAppContext } from "utils/context";
 import { setProfile } from "store/profile/slice";
 import { setBalance } from "store/balance/action";
+import { setFundId } from "store/fund/action";
 import WebApp from "@twa-dev/sdk";
 
 const Home = () => {
@@ -84,7 +85,8 @@ const Home = () => {
   }, [onUserBalance]);
 
   const onFundClick = (id) => {
-    navigate(`/${id}`);
+    dispatch(setFundId(id))
+    navigate(`/fund`);
   };
 
   return (

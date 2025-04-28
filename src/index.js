@@ -20,7 +20,7 @@ const persistor = persistStore(store);
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter basename="/">
+      <BrowserRouter>
         <AppProvider>
           <App />
         </AppProvider>
