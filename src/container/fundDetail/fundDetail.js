@@ -22,12 +22,8 @@ const FundDetail = () => {
     balance?.balances?.length > 0 ?
       balance?.balances?.filter((item) => item.chest === id)[0] : null;
 
-  console.log(id, data, balance, balanceData);
+  console.log(chartData);
   const onGetFundDetail = useCallback(async () => {
-    if (!id) {
-      navigate("/"); // اگر id نیست، کاربر رو برگردون به صفحه اصلی
-      return;
-    }
     const response = await getFundDetail(instance, id);
     if (response) {
       dispatch(setFund(response));
@@ -60,7 +56,7 @@ const FundDetail = () => {
     <>
       <div className=" mb-8 mx-5 ">
         <UserAssetCard data={data} balance={balanceData} hasReturn={true} />
-        {/* <ReturnChart data={data} chartData={chartData} loading={loading} /> */}
+        {chartData && <ReturnChart data={data} chartData={chartData} loading={loading} />}
         <FundInfo data={data} chartData={chartData} />
       </div>
       <Buttons data={balanceData} onClick={onOrderClick} />
