@@ -86,7 +86,7 @@ const Home = () => {
 
   const onFundClick = (id) => {
     dispatch(setFundId(id))
-    navigate(`/fund`);
+    navigate(`/fund/${id}`);
   };
 
   return (
