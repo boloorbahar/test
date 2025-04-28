@@ -8,7 +8,7 @@ export const FundInfoListData = (data, chartData) => {
     {
       name: "Unit Price",
       value: `${config.numberSeparator(
-        chartData[chartData?.length - 1]?.price_per_unit
+        chartData[0]?.price_per_unit || 0
       )} USDT`,
     },
     { name: "Risk Type", value: data?.risk_type },
