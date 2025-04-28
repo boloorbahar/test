@@ -38,8 +38,9 @@ const Home = () => {
 
   const onCreateUser = async () => {
     const data = {
-      username: WebApp?.initDataUnsafe?.user?.username,
+      username: WebApp?.initDataUnsafe?.user?.username.toString(),
       user_id: WebApp?.initDataUnsafe?.user?.id,
+      additionalProp1: {},
     };
     const response = await createUser(instance, data);
     if (response) {
