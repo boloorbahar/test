@@ -28,7 +28,7 @@ const UserInfoCard = () => {
           size="large"
           className="border-none !bg-[#9a9a9a] mt-5 self-center py-2 px-14 w-full max-w-64 text-[16px] leading-5"
 
-          // className="mt-5 self-center py-2 px-14 w-full max-w-64 text-[16px] leading-5"
+        // className="mt-5 self-center py-2 px-14 w-full max-w-64 text-[16px] leading-5"
         >
           Connect Ton Wallet
         </Button>
@@ -45,7 +45,9 @@ const UserInfoCard = () => {
           </span>
           <span className="mt-[10px] text-[16px] leading-5">
             Total Balance:{" "}
-            {config.numberSeparator(parseInt(data?.total_balance_usdt))}
+            {data?.total_balance_usdt
+              ? config.numberSeparator(parseInt(data?.total_balance_usdt))
+              : 0}
             <span className="text-xs leading-4 ml-2">USDT</span>{" "}
           </span>
         </div>
