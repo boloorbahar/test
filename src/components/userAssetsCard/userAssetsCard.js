@@ -3,15 +3,14 @@ import memeFund from "assets/images/meme-fund.jpeg";
 import whaleFund from "assets/images/whale-fund.jpeg";
 
 const UserAssetCard = ({ data, hasReturn, balance }) => {
-  
+
   const handleReturn = () => {
     return (
       <span
-        className={`${
-          data?.daily_return?.includes("-")
-            ? "text-[#FB4162]"
-            : "text-[#16B24B]"
-        } font-light `}
+        className={`${data?.daily_return?.includes("-")
+          ? "text-[#FB4162]"
+          : "text-[#16B24B]"
+          } font-light `}
       >
         {data?.daily_return}
       </span>
@@ -20,9 +19,9 @@ const UserAssetCard = ({ data, hasReturn, balance }) => {
 
   const renderImages = (name) => {
     switch (name) {
-      case "6804eff18a4f0138c1320654":
+      case "680eab03c600cd283e3e4de6":
         return memeFund;
-      case "6804f04e8a4f0138c1320655":
+      case "680eab305c3b44f2299e69ce":
         return whaleFund;
       default:
         return memeFund;

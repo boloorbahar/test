@@ -13,11 +13,10 @@ const UserAssets = ({ onFundClick, data }) => {
       <span className="text-sm leading-4 font-extralight">
         Today{"  "}
         <span
-          className={`${
-            item?.daily_return?.includes("-")
-              ? "text-[#FB4162]"
-              : "text-[#16B24B]"
-          } font-light `}
+          className={`${item?.daily_return?.includes("-")
+            ? "text-[#FB4162]"
+            : "text-[#16B24B]"
+            } font-light `}
         >
           {item?.daily_return}
         </span>
@@ -39,9 +38,9 @@ const UserAssets = ({ onFundClick, data }) => {
 
   const renderImages = (name) => {
     switch (name) {
-      case "6804eff18a4f0138c1320654":
+      case "680eab03c600cd283e3e4de6":
         return memeFund;
-      case "6804f04e8a4f0138c1320655":
+      case "680eab305c3b44f2299e69ce":
         return whaleFund;
       default:
         return memeFund;
