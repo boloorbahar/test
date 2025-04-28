@@ -22,8 +22,12 @@ const FundDetail = () => {
     balance?.balances?.length > 0 ?
       balance?.balances?.filter((item) => item.chest === id)[0] : null;
 
-
+  console.log(id, data, balance, balanceData);
   const onGetFundDetail = useCallback(async () => {
+    if (!id) {
+      navigate("/"); // اگر id نیست، کاربر رو برگردون به صفحه اصلی
+      return;
+    }
     const response = await getFundDetail(instance, id);
     if (response) {
       dispatch(setFund(response));
@@ -50,6 +54,9 @@ const FundDetail = () => {
   const onOrderClick = () => {
     navigate("/order");
   };
+  if (!id) {
+    return <div className="text-center text-white mt-10">در حال بارگذاری...</div>;
+  }
   return (
     <>
       <div className=" mb-8 mx-5 ">
