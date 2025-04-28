@@ -38,7 +38,7 @@ const Home = () => {
 
   const onCreateUser = async () => {
     const data = {
-      username: WebApp?.initDataUnsafe?.user?.username.toString(),
+      username:String(WebApp?.initDataUnsafe?.user?.username),
       user_id: WebApp?.initDataUnsafe?.user?.id,
       additionalProp1: {},
     };
