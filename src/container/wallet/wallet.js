@@ -30,7 +30,7 @@ const Wallet = () => {
   }, [onGetTransactionsList]);
 
   const onFundClick = (id) => {
-    navigate(`/fund/${id}`);
+    navigate(`/${id}`);
   };
 
   return (

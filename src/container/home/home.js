@@ -84,7 +84,7 @@ const Home = () => {
   }, [onUserBalance]);
 
   const onFundClick = (id) => {
-    navigate(`/fund/${id}`);
+    navigate(`/${id}`);
   };
 
   return (

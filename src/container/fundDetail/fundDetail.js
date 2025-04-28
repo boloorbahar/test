@@ -14,7 +14,7 @@ const FundDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  const id = location.pathname.split("/")[2];
+  const id = location.pathname.split("/")[1];
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState(false);
   const data = useSelector((state) => state?.fundReducer?.data);
