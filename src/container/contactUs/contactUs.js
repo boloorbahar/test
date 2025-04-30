@@ -8,8 +8,9 @@ const ContactUs = () => {
         channels:
       </p>
       <p className="my-10 font-normal text-[16px] leading-5 text-justify">
-        Telegram: <a href="https://t.me/Satsfund">t.me/Satsfund</a>
-        <br /> Email: satsfund@gmail.com <br /> X: <a href="https://x.com/SatsFund">x.com/SatsFund</a>
+        Telegram Channel: <a href="https://t.me/Satsfund">t.me/Satsfund</a>
+        <br />Telegram Support: <a href="https://t.me/SatsFund">@SatsfundSupport</a>
+        <br />  Email: satsfund@gmail.com <br /> X: <a href="https://x.com/SatsFund">x.com/SatsFund</a>
       </p>
       <p className="my-10 font-normal text-[16px] leading-5 text-justify">
         We love hearing from our community—whether it’s feedback, bug reports,
