@@ -35,7 +35,9 @@ const UserFunds = ({ onFundClick, data, fund }) => {
               {item?.dynamic_name}
             </span>
             <span className="font-extralight text-sm leading-3">
-              {config?.numberSeparator(parseInt(item?.balance_unit_usdt || 0))}{" "}
+              {config?.numberSeparator(
+                parseInt(item?.balance_unit_available || 0)
+              )}{" "}
               <span className="ml-1 text-[10px] ">unit</span>
             </span>
           </div>
@@ -44,9 +46,7 @@ const UserFunds = ({ onFundClick, data, fund }) => {
               <span className="font-extralight text-xs leading-3">{i}</span>
             ))}
             <span className="font-extralight text-xs leading-3">
-              {config?.numberSeparator(
-                parseInt(item?.balance_unit_available || 0)
-              )}{" "}
+              {config?.numberSeparator(parseInt(item?.balance_unit_usdt || 0))}{" "}
               <span>$</span>
             </span>
           </div>
