@@ -9,7 +9,7 @@ const ContactUs = () => {
       </p>
       <p className="my-10 font-normal text-[16px] leading-5 text-justify">
         Telegram Channel: <a href="https://t.me/Satsfund">t.me/Satsfund</a>
-        <br />Telegram Support: <a href="https://t.me/SatsFund">@SatsfundSupport</a>
+        <br />Telegram Support: <a href="https://t.me/SatsFundSupport">@SatsfundSupport</a>
         <br />  Email: satsfund@gmail.com <br /> X: <a href="https://x.com/SatsFund">x.com/SatsFund</a>
       </p>
       <p className="my-10 font-normal text-[16px] leading-5 text-justify">
