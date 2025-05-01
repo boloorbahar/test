@@ -4,7 +4,7 @@ const Buttons = ({ data, onClick }) => {
   return (
     <div
       className={`fixed w-full max-w-lg bottom-0 p-5 bg-[#0F0F0F] grid ${
-        data?.unit ? "grid-cols-2" : "grid-cols-1"
+        data?.balance_unit_available  ? "grid-cols-2" : "grid-cols-1"
       } gap-5 `}
     >
       {data?.balance_unit_available && (
