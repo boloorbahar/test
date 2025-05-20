@@ -1,4 +1,3 @@
-import { userTransactionsData } from "container/services/service";
 import config from "utils/globals";
 
 const UserTransactions = ({ data }) => {

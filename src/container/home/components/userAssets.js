@@ -3,22 +3,20 @@ import memeFund from "assets/images/meme-fund.jpeg";
 import whaleFund from "assets/images/whale-fund.jpeg";
 
 const UserAssets = ({ onFundClick, data }) => {
-  const statusType = (item) => {
+  const efficiencyType = (name, value) => {
     // return item?.status === "pending" ? (
     //   <span className="text-[#B2A216] font-light text-sm leading-4">
     //     Pending...
     //   </span>
     // ) :
     return (
-      <span className="text-sm leading-4 font-extralight">
-        Today{"  "}
+      <span className="text-sm leading-4 font-extralight ">
+        {name}
         <span
-          className={`${item?.daily_return?.includes("-")
-            ? "text-[#FB4162]"
-            : "text-[#16B24B]"
-            } font-light `}
+          className={`${value?.includes("-") ? "text-[#FB4162]" : "text-[#16B24B]"
+            } font-light ml-2`}
         >
-          {item?.daily_return}
+          {value}
         </span>
       </span>
     );
@@ -53,21 +51,24 @@ const UserAssets = ({ onFundClick, data }) => {
       config.sortArray(data, "priority")?.map((item) => (
         <div
           key={item?.id}
-          className="rounded-xl bg-[#0F0F0F] border border-[#58545f] p-6 grid grid-cols-12 gap-2"
+          className="rounded-xl bg-[#0F0F0F] border border-[#58545f] p-6 grid grid-cols-12 "
           onClick={() => onFundClick(item?.id)}
         >
           <img
             src={renderImages(item?.id)}
-            className="rounded-full h-14 w-14  col-span-3"
+            className="rounded-full h-14 w-14 col-span-3"
           />
-          <div className="flex flex-col items-start text-[#E9EBF8] w-full col-span-9 ">
+          <div className="flex flex-col items-start text-[#E9EBF8] w-full col-span-5 ">
             <span className="font-bold text-xl leading-6">
               {item?.dynamic_name}
             </span>
             <div className="flex justify-between items-center mt-[10px] w-full">
               {renderType(item?.feature)}
-              {statusType(item)}
             </div>
+          </div>
+          <div className="flex flex-col items-start text-[#E9EBF8] w-full col-span-4 justify-between my-2">
+            {efficiencyType("Today", item?.daily_return)}
+            {efficiencyType("Monthly", item?.monthly_return)}
           </div>
         </div>
       ))

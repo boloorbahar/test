@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: .
+    container_name: fronend
+    ports:
+      - "127.0.0.1:3000:3000"
+    networks:
+      - memfund
+
+
+
+networks:
+  memfund:
+    external: true
